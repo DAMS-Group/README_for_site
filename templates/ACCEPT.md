@@ -2,7 +2,7 @@
 layout: post
 title: 【论文录用】[会议简称]
 date: [录用日期，格式：xxxx-xx-xx] 14:00:00+0800
-inline: false
+inline: true
 related_posts: false
 giscus_comments: false
 category: 学术活动
