@@ -4,24 +4,6 @@ import json
 import os
 import sys
 
-# 生成Markdown内容
-report_news_content = f"""---
-layout: post
-title: 【学术报告】{author}的报告 @ {conference_abbreviation}{conference_year}
-date: {conference_date} 14:00:00+0800
-inline: false
-related_posts: false
-giscus_comments: false
-category: 学术活动
----
-
-{author}于{chinese_conference_date}在{conference_location}参加{conference_full_name_cn}（{conference_full_name_en}, {conference_abbreviation}{conference_year}），在会议上汇报了题为《{paper_title}》的学术研究成果。
-
-该工作{paper_intro}。
-
-{other_content}
-"""
-
 
 def generate_report_news(json_file_path):
     # 读取JSON文件
@@ -45,6 +27,24 @@ def generate_report_news(json_file_path):
     other_content = data.get("其他内容", "")
     other_content = "" if other_content == "可不填" else other_content
 
+    # 生成Markdown内容
+    report_news_content = f"""---
+layout: post
+title: 【学术报告】{author}的报告 @ {conference_abbreviation}{conference_year}
+date: {conference_date} 14:00:00+0800
+inline: false
+related_posts: false
+giscus_comments: false
+category: 学术活动
+---
+
+{author}于{chinese_conference_date}在{conference_location}参加{conference_full_name_cn}（{conference_full_name_en}, {conference_abbreviation}{conference_year}），在会议上汇报了题为《{paper_title}》的学术研究成果。
+
+该工作{paper_intro}。
+
+{other_content}
+"""
+
     # 生成Markdown文件名
     markdown_file_name = (
         f"{conference_date}-{author}@{conference_abbreviation}{conference_year}.md"
@@ -61,6 +61,6 @@ def generate_report_news(json_file_path):
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("请指定JSON文件路径")
+        print(f"请指定JSON文件路径: python3 {sys.argv[0]} [JSON_FILE]")
         sys.exit(1)
     generate_report_news(sys.argv[1])

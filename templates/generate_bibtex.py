@@ -4,20 +4,6 @@ import json
 import os
 import sys
 
-# 生成BibTeX条目
-bibtex_entry = f"""@article{{{first_author_first_name.lower()}{year}{tool_name.replace(' ', '').lower()},
-  title={{ {paper_title} }},
-  author={{ {authors} }},
-  abstract={{ {abstract} }},
-  year={{ {year} }},
-  note={{ {conference_full_name} }},
-  bibtex_show={{ true }},
-  preview={{ {preview_image} }},
-  type={{ inproceedings }},
-  tags={{ {tags} }},
-  ccf={{ {ccf_level} }}
-}}
-"""
 
 def generate_bibtex_from_json(json_file_path):
     # 读取JSON文件
@@ -36,11 +22,27 @@ def generate_bibtex_from_json(json_file_path):
     tags = data.get("论文标签", "")
     ccf_level = data.get("CCF等级", "")
 
+    # 生成BibTeX条目
+    bibtex_entry = f"""@article{{{first_author_first_name.lower()}{year}{tool_name.replace(' ', '').lower()},
+  title={{ {paper_title} }},
+  author={{ {authors} }},
+  abstract={{ {abstract} }},
+  year={{ {year} }},
+  note={{ {conference_full_name} }},
+  bibtex_show={{ true }},
+  preview={{ {preview_image} }},
+  type={{ inproceedings }},
+  tags={{ {tags} }},
+  ccf={{ {ccf_level} }}
+}}
+"""
+
     # 输出BibTeX条目
     print(bibtex_entry)
 
+
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("请指定JSON文件路径")
+        print(f"请指定JSON文件路径: python3 {sys.argv[0]} [JSON_FILE]")
         sys.exit(1)
     generate_bibtex_from_json(sys.argv[1])

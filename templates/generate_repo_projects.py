@@ -4,22 +4,6 @@ import json
 import os
 import sys
 
-# 生成Markdown内容
-repo_projects_content = f"""---
-layout: page
-title: {tool_name}
-description: {paper_title}
-img: {img_link}
-pub_year: {pub_year}
-importance: 1
-category: Publications
-related_publications: true
-redirect: {redirect_link}
----
-
-{abstract}
-"""
-
 
 def generate_repo_projects(json_file_path):
     # 读取JSON文件
@@ -33,6 +17,22 @@ def generate_repo_projects(json_file_path):
     img_link = data.get("配图", "https://octodex.github.com/images/red-polo.png")
     pub_year = data.get("会议年份", "")
     redirect_link = data.get("GitHub链接", "javascript:void(0)")
+
+    # 生成Markdown内容
+    repo_projects_content = f"""---
+layout: page
+title: {tool_name}
+description: {paper_title}
+img: {img_link}
+pub_year: {pub_year}
+importance: 1
+category: Publications
+related_publications: true
+redirect: {redirect_link}
+---
+
+{abstract}
+"""
 
     # 生成Markdown文件名
     markdown_file_name = f"{tool_name.lower().replace(':', '').replace(' ', '-')}.md"
@@ -48,6 +48,6 @@ def generate_repo_projects(json_file_path):
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("请指定JSON文件路径")
+        print(f"请指定JSON文件路径: python3 {sys.argv[0]} [JSON_FILE]")
         sys.exit(1)
     generate_repo_projects(sys.argv[1])
