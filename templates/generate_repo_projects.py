@@ -22,7 +22,7 @@ def generate_repo_projects(json_file_path):
     repo_projects_content = f"""---
 layout: page
 title: {tool_name}
-description: {paper_title}
+description: {paper_title.split(':')[-1].strip()}
 img: {img_link}
 pub_year: {pub_year}
 importance: 1
@@ -35,15 +35,15 @@ redirect: {redirect_link}
 """
 
     # 生成Markdown文件名
-    markdown_file_name = f"{tool_name.lower().replace(':', '').replace(' ', '-')}.md"
+    output_filename = f"{paper_title.lower().replace(':', '').replace(' ', '-')}.md"
 
     # 写入Markdown文件
     with open(
-        os.path.join(os.path.dirname(json_file_path), markdown_file_name),
+        os.path.join(os.path.dirname(json_file_path), output_filename),
         "w",
         encoding="utf-8",
     ) as file:
-        file.write(md_content)
+        file.write(repo_projects_content)
 
 
 if __name__ == "__main__":

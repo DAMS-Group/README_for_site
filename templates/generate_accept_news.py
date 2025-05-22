@@ -31,23 +31,23 @@ giscus_comments: false
 category: 学术活动
 ---
 
-恭喜{author}的论文{paper_title}被{conference_abbreviation}录用。该工作{paper_intro}。
+恭喜{author}的论文{paper_title}被{conference_abbreviation}录用。{paper_intro}。
 
 {other_content}
 """
 
     # 生成Markdown文件名
-    markdown_file_name = (
+    output_filename = (
         f"{acceptance_date}-accept@{conference_abbreviation}{conference_year}.md"
     )
 
     # 写入Markdown文件
     with open(
-        os.path.join(os.path.dirname(json_file_path), markdown_file_name),
+        os.path.join(os.path.dirname(json_file_path), output_filename),
         "w",
         encoding="utf-8",
     ) as file:
-        file.write(markdown_content)
+        file.write(accept_news_content)
 
 
 if __name__ == "__main__":

@@ -40,23 +40,23 @@ category: 学术活动
 
 {author}于{chinese_conference_date}在{conference_location}参加{conference_full_name_cn}（{conference_full_name_en}, {conference_abbreviation}{conference_year}），在会议上汇报了题为《{paper_title}》的学术研究成果。
 
-该工作{paper_intro}。
+{paper_intro}。
 
 {other_content}
 """
 
     # 生成Markdown文件名
-    markdown_file_name = (
+    output_filename = (
         f"{conference_date}-{author}@{conference_abbreviation}{conference_year}.md"
     )
 
     # 写入Markdown文件
     with open(
-        os.path.join(os.path.dirname(json_file_path), markdown_file_name),
+        os.path.join(os.path.dirname(json_file_path), output_filename),
         "w",
         encoding="utf-8",
     ) as file:
-        file.write(md_content)
+        file.write(report_news_content)
 
 
 if __name__ == "__main__":
