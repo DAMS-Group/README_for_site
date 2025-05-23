@@ -2,7 +2,7 @@
 
 - `_bibliography`: 论文信息
 - `_config.yml`: 网站配置 (参考 al-folio)
-- `_data`: 
+- `_data`: yaml 数据
 - `_includes`: 不同页面的 liquid 模板
 - `_layouts`: 不同页面的 liquid 模板
 - `_members`: 成员信息
