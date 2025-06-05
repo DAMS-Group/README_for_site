@@ -20,6 +20,7 @@ def generate_bibtex_from_json(json_file_path):
     conference_full_name = data.get("会议英文全称", "")
     preview_image = data.get("文章架构图", "")
     tags = data.get("论文标签", "")
+    github = data.get("GitHub仓库链接", "")
     ccf_level = data.get("CCF等级", "")
 
     # 生成BibTeX条目
@@ -33,7 +34,8 @@ def generate_bibtex_from_json(json_file_path):
   preview={{ {preview_image} }},
   type={{ inproceedings }},
   tags={{ {tags} }},
-  ccf={{ {ccf_level} }}
+  github={{ {github} }},
+  ccf={{ {ccf_level} }},
 }}
 """
 

@@ -6,8 +6,6 @@
     - 执行 `python3 generate_accept_news.py ACCEPT.json`, 将生成的文件放到网站的 `_news` 目录下
 - `BIB.json`: 论文引用信息, 论文架构图
     - 执行 `python3 generate_bib_news.py BIB.json`, 将输出的内容添加到放到网站的 `_bibliography/papers.bib` 文件中
-- `REPO.json`: 论文开源工具地址
-    - 执行 `python3 generate_repo_news.py REPO.json`, 将生成的文件添加到放到网站的 `_projects` 目录下
 
 ## 参加会议汇报论文时
 
