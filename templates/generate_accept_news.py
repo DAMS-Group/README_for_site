@@ -23,15 +23,15 @@ def generate_accept_news(json_file_path):
     # 生成Markdown内容
     accept_news_content = f"""---
 layout: post
-title: 【论文录用】{conference_abbreviation}{conference_year}
+title: 【论文录用】{conference_abbreviation}
 date: {acceptance_date} 14:00:00+0800
-inline: true
+inline: false
 related_posts: false
 giscus_comments: false
 category: 学术活动
 ---
 
-恭喜{author}的论文{paper_title}被{conference_abbreviation}录用。{paper_intro}。
+恭喜{author}的论文 {paper_title} 被 {conference_abbreviation} 录用。{paper_intro}。
 
 {other_content}
 """
