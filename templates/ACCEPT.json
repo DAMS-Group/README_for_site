@@ -1,9 +1,10 @@
 {
-    "第一作者": "",
-    "论文名": "",
-    "录用日期": "XXXX-XX-XX",
-    "会议年份": "",
-    "会议英文缩写": "",
-    "一句话论文简介": "",
+    "第一作者": "刘昕",
+    "论文名": "Latent Knowledge Scalpel: Precise and Massive Knowledge Editing for Large Language Models",
+    "录用日期": "2025-07-16",
+    "会议年份": "2025",
+    "会议英文全称": "European Conference on Artificial Intelligence",
+    "会议英文缩写": "ECAI",
+    "一句话论文简介": "该工作提出了一种LLM知识编辑器，它通过一个小型神经网络操纵目标实体的内部表示以修改知识，能够支持大规模的知识编辑，且同时保留被编辑LLM的通用能力。",
     "其他内容": "可不填"
 }
